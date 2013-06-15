@@ -2,7 +2,7 @@ package person.mueller.roland.widget.example;
 
 import java.util.Random;
 
-import person.mueller.roland.mywidget.*;
+import person.mueller.roland.mywidgetcontainer.*;
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;

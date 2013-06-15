@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="person.mueller.roland.mywidget"
+    package="person.mueller.roland.mywidgetcontainer"
     android:versionCode="1"
     android:versionName="1.0" >
 
