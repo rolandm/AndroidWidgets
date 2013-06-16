@@ -1,4 +1,4 @@
-package person.mueller.roland.widget.example;
+package person.mueller.roland.widget;
 
 import java.util.Random;
 

@@ -9,7 +9,7 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:allowBackup="true" >
-        <receiver android:name="person.mueller.roland.widget.example.MyWidgetProvider" >
+        <receiver android:name="person.mueller.roland.widget.MyWidgetProvider" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
