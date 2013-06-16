@@ -18,16 +18,16 @@ public class MyWidgetProvider extends AppWidgetProvider {
 	@Override
 	public void onUpdate(Context context, AppWidgetManager appWidgetManager,
 			int[] appWidgetIds) {
-		ComponentName thisWidget = new ComponentName(context,
-				MyWidgetProvider.class);
-		int[] allWidgetsIds = appWidgetManager.getAppWidgetIds(thisWidget);
+		int[] allWidgetsIds = getWidgets(context, appWidgetManager);
+		Log.w("WidgetExample",
+				"appWidgetIds="+ intArrayToString(appWidgetIds) 
+				+ " allWidgetIds=" + intArrayToString(allWidgetsIds));
+		RemoteViews remoteViews = new RemoteViews(context.getPackageName(),
+				R.layout.widget_layout);
 		for (int widgetId : allWidgetsIds) {
-			// create some random data to show in widget
-			String number = String.valueOf(new Random().nextInt(100));
-			RemoteViews remoteViews = new RemoteViews(context.getPackageName(),
-					R.layout.widget_layout);
-			Log.w("WidgetExample", number);
-			remoteViews.setTextViewText(R.id.update, number);
+			String value = getValue();
+			Log.w("WidgetExample", value);
+			remoteViews.setTextViewText(R.id.update, value);
 
 			// register onClickListener
 			Intent intent = new Intent(context, MyWidgetProvider.class);
@@ -39,6 +39,27 @@ public class MyWidgetProvider extends AppWidgetProvider {
 			remoteViews.setOnClickPendingIntent(R.id.update, pendingIntent);
 			appWidgetManager.updateAppWidget(widgetId, remoteViews);
 		}
+	}
+	
+	private int[] getWidgets(Context context, AppWidgetManager appWidgetManager) {
+		ComponentName thisWidget = new ComponentName(context,
+				MyWidgetProvider.class);
+		int[] allWidgetsIds = appWidgetManager.getAppWidgetIds(thisWidget);
+		return allWidgetsIds;
+	}
+
+	private String getValue() {
+		// create some random data to show in widget
+		String number = String.valueOf(new Random().nextInt(6) + 1);
+		return number;
+	}
+
+	String intArrayToString(int[] intArray) {
+		String outs = "[ ";
+		for (int i : intArray)
+			outs += i + " ";
+		outs += "]";
+		return outs;
 	}
 
 }
