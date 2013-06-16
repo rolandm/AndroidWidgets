@@ -1,5 +1,8 @@
 package person.mueller.roland.widget;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Random;
 
 import person.mueller.roland.mywidget.*;
@@ -51,7 +54,8 @@ public class MyWidgetProvider extends AppWidgetProvider {
 	private String getValue() {
 		// create some random data to show in widget
 		String number = String.valueOf(new Random().nextInt(6) + 1);
-		return number;
+		return new SimpleDateFormat("yyyy.MM.dd HH:mm:ss").format(new Date())
+			+ "\n" + number;
 	}
 
 	String intArrayToString(int[] intArray) {
